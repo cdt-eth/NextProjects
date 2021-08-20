@@ -21,7 +21,8 @@ const TodoList = ({
     <div>
       {todos.map((todo: string) => (
         <Todo
-          key={Math.floor(Math.random() * 10000)}
+          //   key={Math.floor(Math.random() * 10000)}
+          key={todo}
           todo={todo}
           handleDelete={handleDelete}
           handleEdit={handleEdit}

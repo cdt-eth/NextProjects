@@ -3,7 +3,7 @@ import TodoList from "../components/TodoList";
 
 const Todo = () => {
   const [input, setInput] = useState<string>("");
-  const [todos, setTodos] = useState<any[]>([{ todo: "", id: 1 }]);
+  const [todos, setTodos] = useState<any[]>([]);
   const [editTodo, setEditTodo] = useState<string>("");
 
   function handleClick(e: any) {
