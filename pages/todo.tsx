@@ -1,11 +1,6 @@
 import { useState } from "react";
 import TodoList from "../components/TodoList";
 
-// interface Todos {
-//   todos: string;
-//   // input?: string;
-// }
-
 const Todo = () => {
   const [input, setInput] = useState<string>("");
   const [todos, setTodos] = useState<string[]>([]);
@@ -44,7 +39,10 @@ const Todo = () => {
       </form>
 
       <br />
-      <TodoList todos={todos} handleDelete={handleDelete} />
+      <TodoList
+        todos={todos}
+        handleDelete={handleDelete as (a: string) => string}
+      />
     </div>
   );
 };

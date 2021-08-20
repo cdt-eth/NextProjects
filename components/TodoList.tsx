@@ -2,7 +2,7 @@ import Todo from "./Todo";
 
 interface Props {
   todos: string[];
-  handleDelete: any;
+  handleDelete: (a: string) => string;
 }
 
 const TodoList = ({ todos, handleDelete }: Props) => {
