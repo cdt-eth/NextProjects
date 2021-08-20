@@ -1,12 +1,18 @@
 import Todo from "./Todo";
 
-const TodoList = () => {
+interface Props {
+  todos: string[];
+  handleDelete: any;
+}
+
+const TodoList = ({ todos, handleDelete }: Props) => {
   return (
     <div>
-      {/* {todos.map((todo) => (
-        <Todo key={todo.name} />
-      ))} */}
-      <Todo />
+      <div>
+        {todos.map((todo: string) => (
+          <Todo key={todo} todo={todo} handleDelete={handleDelete} />
+        ))}
+      </div>
     </div>
   );
 };

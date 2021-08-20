@@ -1,11 +1,16 @@
 import { useState } from "react";
 import TodoList from "../components/TodoList";
 
-const Todo = () => {
-  const [input, setInput] = useState("");
-  const [todos, setTodos] = useState([]);
+// interface Todos {
+//   todos: string;
+//   // input?: string;
+// }
 
-  function handleClick(e) {
+const Todo = () => {
+  const [input, setInput] = useState<string>("");
+  const [todos, setTodos] = useState<string[]>([]);
+
+  function handleClick(e: any) {
     e.preventDefault();
 
     if (!input) {
@@ -18,7 +23,7 @@ const Todo = () => {
     setInput("");
   }
 
-  function handleDelete(todoID) {
+  function handleDelete(todoID: string) {
     console.log(todoID);
     setTodos((todos) => todos.filter((todo) => todo !== todoID));
   }
@@ -39,29 +44,7 @@ const Todo = () => {
       </form>
 
       <br />
-
-      <div>
-        {todos.map((todo) => (
-          <div key={todo}>
-            <li>
-              {todo}{" "}
-              <span
-                style={{
-                  cursor: "pointer",
-                  border: "1px solid black",
-                  padding: 3,
-                  background: "red",
-                  color: "white",
-                }}
-                onClick={() => handleDelete(todo)}
-              >
-                X
-              </span>
-            </li>
-          </div>
-        ))}
-      </div>
-      {/* <TodoList /> */}
+      <TodoList todos={todos} handleDelete={handleDelete} />
     </div>
   );
 };
