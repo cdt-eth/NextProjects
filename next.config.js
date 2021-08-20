@@ -1,4 +1,5 @@
 module.exports = {
+  basePath: "/NextProjects",
   reactStrictMode: true,
-  // assetPrefix: "/NextProjects/",
+  assetPrefix: "/NextProjects",
 };
