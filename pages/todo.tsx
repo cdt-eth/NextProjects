@@ -1,5 +1,5 @@
 import { useState } from "react";
-import TodoList from "../components/TodoList";
+import TodoList from "../components/Todo/TodoList";
 
 const Todo = () => {
   const [input, setInput] = useState<string>("");
