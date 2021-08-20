@@ -3,7 +3,8 @@ import TodoList from "../components/TodoList";
 
 const Todo = () => {
   const [input, setInput] = useState<string>("");
-  const [todos, setTodos] = useState<string[]>([]);
+  const [todos, setTodos] = useState<any[]>([{ todo: "", id: 1 }]);
+  const [editTodo, setEditTodo] = useState<string>("");
 
   function handleClick(e: any) {
     e.preventDefault();
@@ -18,9 +19,21 @@ const Todo = () => {
     setInput("");
   }
 
-  function handleDelete(todoID: string) {
-    console.log(todoID);
-    setTodos((todos) => todos.filter((todo) => todo !== todoID));
+  function handleDelete(currentTodo: string) {
+    setTodos((todos) => todos.filter((todo) => todo !== currentTodo));
+  }
+
+  function handleEdit(currentTodo: string) {
+    setEditTodo(currentTodo);
+  }
+
+  function handleEditTodo() {
+    let editedTodos = todos.map((todo) => {
+      todo = editTodo;
+      return todo;
+    });
+
+    setTodos(editedTodos);
   }
 
   return (
@@ -39,9 +52,14 @@ const Todo = () => {
       </form>
 
       <br />
+
       <TodoList
         todos={todos}
         handleDelete={handleDelete as (a: string) => string}
+        handleEdit={handleEdit as (a: string) => string}
+        editTodo={editTodo}
+        setEditTodo={setEditTodo}
+        handleEditTodo={handleEditTodo as any}
       />
     </div>
   );
