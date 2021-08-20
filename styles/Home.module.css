@@ -50,6 +50,17 @@
   font-size: 4rem;
 }
 
+.description a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.description a:hover,
+.description a:focus,
+.description a:active {
+  text-decoration: underline;
+}
+
 .title,
 .description {
   text-align: center;
